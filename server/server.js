@@ -15,7 +15,7 @@ app.use(express.json()); // Corrected: properly invoke express.json()
 app.use(cors());
 
 // Routes
-app.use(routes);
+app.use('/api', routes);
 
 app.listen(port, async () => {
     try {

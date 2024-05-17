@@ -68,7 +68,7 @@ const login = async (req, res) => {
 const findUser = async (req, res) => {
     const userId = req.params.userId;
     try {
-        let user = await userSchema.findById( userId );
+        let user = await userSchema.findById(userId);
         if (!user)
             return res.status(404).json({ error: "Not found" });
         return res.status(200).json({ success: true, _id: user._id, name: user.name, email });
@@ -81,7 +81,7 @@ const findAllUser = async (req, res) => {
     const userId = req.params.userId;
     try {
         let users = await userSchema.find();
-        return res.status(200).json({ success: true, data:users });
+        return res.status(200).json({ success: true, data: users });
     } catch (error) {
         console.log(error);
         return res.status(500).json({ error: error.message });
@@ -89,5 +89,5 @@ const findAllUser = async (req, res) => {
 }
 
 module.exports = {
-    register, login, findUser,findAllUser
+    register, login, findUser, findAllUser
 };
