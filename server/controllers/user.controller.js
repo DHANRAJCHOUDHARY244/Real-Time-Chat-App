@@ -71,7 +71,7 @@ const findUser = async (req, res) => {
         let user = await userSchema.findById(userId);
         if (!user)
             return res.status(404).json({ error: "Not found" });
-        return res.status(200).json({ success: true, _id: user._id, name: user.name, email });
+        return res.status(200).json({ success: true, _id: user._id, name: user.name, email: user.email });
     } catch (error) {
         console.log(error);
         return res.status(500).json({ error: error.message });
